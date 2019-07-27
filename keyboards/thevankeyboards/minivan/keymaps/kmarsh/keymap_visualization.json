@@ -1,0 +1,509 @@
+[
+  {
+    "name": "KMarsh KUMO Layout v1",
+    "author": "Kyle Marsh"
+  },
+  [
+    {
+      "x": 0.25,
+      "f": 4,
+      "w": 14,
+      "h": 5,
+      "d": true
+    },
+    "Layer 0 (Default)"
+  ],
+  [
+    {
+      "y": -0.5,
+      "c": "#ffffff",
+      "p": "FLAT",
+      "a": 7
+    },
+    "<i class='kb kb-Tab-1'></i>",
+    "Q",
+    "W",
+    "E",
+    "R",
+    "T",
+    "Y",
+    "U",
+    "I",
+    "O",
+    "P",
+    {
+      "w": 1.75
+    },
+    "<i class='kb kb-Return-3'></i>"
+  ],
+  [
+    {
+      "a": 4,
+      "w": 1.25
+    },
+    "Tap\nHold\n<i class='mss mss-Unicode-Escape-3'></i>\nL-2",
+    {
+      "a": 7
+    },
+    "A",
+    "S",
+    "D",
+    "F",
+    "G",
+    "H",
+    "J",
+    "K",
+    "L",
+    {
+      "a": 5
+    },
+    ":\n;",
+    {
+      "a": 4,
+      "w": 1.5
+    },
+    "Tap\nHold\n'\nL-2"
+  ],
+  [
+    {
+      "a": 7,
+      "w": 1.75
+    },
+    "&uArr;",
+    "Z",
+    "X",
+    "C",
+    "V",
+    "B",
+    "N",
+    "M",
+    {
+      "a": 5
+    },
+    "<\n,",
+    ">\n.",
+    "?\n/",
+    {
+      "a": 7
+    },
+    "&uArr;"
+  ],
+  [
+    {
+      "w": 1.25
+    },
+    "ctl",
+    {
+      "w": 1.5
+    },
+    "<i class='mss mss-Unicode-Option-3'></i>",
+    {
+      "w": 1.25
+    },
+    "<i class='mss mss-Unicode-Command-3'></i>",
+    {
+      "a": 4,
+      "w": 2.25
+    },
+    "Tap\nHold\n\n\n\n\n\n\n<i class='mss mss-Unicode-BackSpace-DeleteLeft-Big-2'></i>\n\nL-1",
+    {
+      "w": 2
+    },
+    "Tap\nHold\n\n\n\n\n\n\nSpace\n\nL1",
+    {
+      "a": 7,
+      "w": 1.5
+    },
+    "<i class='mss mss-Unicode-Command-3'></i>",
+    "<i class='mss mss-Unicode-Option-3'></i>",
+    "ctl",
+    "L-Fn"
+  ],
+  [
+    {
+      "x": 0.25,
+      "a": 4,
+      "w": 14,
+      "h": 5,
+      "d": true
+    },
+    "Layer 1 (Shift)"
+  ],
+  [
+    {
+      "y": -0.5,
+      "a": 7
+    },
+    "`",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    {
+      "w": 1.75
+    },
+    ":"
+  ],
+  [
+    {
+      "a": 5,
+      "w": 1.25
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Escape-3'></i>",
+    {
+      "a": 7
+    },
+    "Mb-3",
+    "_",
+    "{",
+    "}",
+    {
+      "g": true
+    },
+    "",
+    {
+      "g": false
+    },
+    "<i class='kb kb-Arrows-Left'></i>",
+    "<i class='kb kb-Arrows-Down'></i>",
+    "<i class='kb kb-Arrows-Up'></i>",
+    "<i class='kb kb-Arrows-Right'></i>",
+    "=",
+    {
+      "a": 5,
+      "w": 1.5
+    },
+    "\n___\n\n\n\n\n<i class='kb kb-Return-3'></i>"
+  ],
+  [
+    {
+      "w": 1.75
+    },
+    "\n___\n\n\n\n\n&uArr;",
+    {
+      "g": true,
+      "a": 7
+    },
+    "",
+    "",
+    {
+      "g": false
+    },
+    "[",
+    "]",
+    {
+      "g": true
+    },
+    "",
+    {
+      "g": false,
+      "a": 6
+    },
+    "Home",
+    {
+      "a": 7
+    },
+    "PgDn",
+    "PgUp",
+    "End",
+    "_",
+    {
+      "a": 5
+    },
+    "\n___\n\n\n\n\n&uArr;"
+  ],
+  [
+    {
+      "w": 1.25
+    },
+    "\n___\n\n\n\n\nctl",
+    {
+      "w": 1.5
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Option-3'></i>",
+    {
+      "w": 1.25
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Command-3'></i>",
+    {
+      "a": 4,
+      "w": 2.25
+    },
+    "Tap\nHold\n\n\n\n\n\n\n<i class='mss mss-Unicode-DeleteRight-Big-2'></i>\n\nL-1",
+    {
+      "a": 5,
+      "w": 2
+    },
+    "\n___\n\n\n\n\n(L-1)",
+    {
+      "w": 1.5
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Command-3'></i>",
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Option-3'></i>",
+    "\n___\n\n\n\n\nctl",
+    "\n___\n\n\n\n\nL-Fn"
+  ],
+  [
+    {
+      "x": 0.25,
+      "a": 4,
+      "w": 14,
+      "h": 5,
+      "d": true
+    },
+    "Layer 2 (Num)"
+  ],
+  [
+    {
+      "y": -0.5,
+      "a": 7
+    },
+    "~",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "7",
+    "8",
+    "9",
+    "0",
+    {
+      "w": 1.75
+    },
+    ":"
+  ],
+  [
+    {
+      "a": 5,
+      "w": 1.25
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Escape-3'></i>",
+    {
+      "g": true,
+      "a": 7
+    },
+    "",
+    {
+      "g": false
+    },
+    "-",
+    "{",
+    "}",
+    {
+      "g": true
+    },
+    "",
+    {
+      "g": false
+    },
+    "-",
+    "4",
+    "5",
+    "6",
+    "+",
+    {
+      "a": 5,
+      "w": 1.5
+    },
+    "\n___\n\n\n\n\n<i class='kb kb-Return-3'></i>"
+  ],
+  [
+    {
+      "w": 1.75
+    },
+    "\n___\n\n\n\n\n&uArr;",
+    {
+      "g": true,
+      "a": 7
+    },
+    "",
+    "",
+    {
+      "g": false
+    },
+    "[",
+    "]",
+    {
+      "g": true
+    },
+    "",
+    {
+      "g": false
+    },
+    "0",
+    "1",
+    "2",
+    "3",
+    "\\",
+    {
+      "a": 5
+    },
+    "\n___\n\n\n\n\n&uArr;"
+  ],
+  [
+    {
+      "w": 1.25
+    },
+    "\n___\n\n\n\n\nctl",
+    {
+      "w": 1.5
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Option-3'></i>",
+    {
+      "w": 1.25
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Command-3'></i>",
+    {
+      "w": 2.25
+    },
+    "\n___\n\n\n\n\n(L-1)",
+    {
+      "w": 2
+    },
+    "\n___\n\n\n\n\n(L-1)",
+    {
+      "w": 1.5
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Command-3'></i>",
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Option-3'></i>",
+    "\n___\n\n\n\n\nctl",
+    "\n___\n\n\n\n\nL-Fn"
+  ],
+  [
+    {
+      "x": 0.25,
+      "a": 4,
+      "w": 14,
+      "h": 5,
+      "d": true
+    },
+    "Layer 3 (Fn)"
+  ],
+  [
+    {
+      "y": -0.5,
+      "a": 5
+    },
+    "\n(lock)\n\n\n\n\nL-1",
+    {
+      "a": 7
+    },
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    {
+      "g": true
+    },
+    "",
+    "",
+    {
+      "g": false
+    },
+    "Reset",
+    {
+      "g": true
+    },
+    "",
+    "",
+    "",
+    {
+      "g": false,
+      "a": 5,
+      "w": 1.75
+    },
+    "\n(lock)\n\n\n\n\nL-2"
+  ],
+  [
+    {
+      "w": 1.25
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Escape-3'></i>",
+    {
+      "a": 7
+    },
+    "F5",
+    "F6",
+    "F7",
+    "F8",
+    {
+      "g": true
+    },
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    {
+      "g": false,
+      "a": 5,
+      "w": 1.5
+    },
+    "\n___\n\n\n\n\n<i class='kb kb-Return-3'></i>"
+  ],
+  [
+    {
+      "w": 1.75
+    },
+    "\n___\n\n\n\n\n&uArr;",
+    {
+      "a": 7
+    },
+    "F9",
+    "F10",
+    "F11",
+    "F12",
+    {
+      "g": true
+    },
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    {
+      "g": false,
+      "a": 5
+    },
+    "\n___\n\n\n\n\n&uArr;"
+  ],
+  [
+    {
+      "w": 1.25
+    },
+    "\n(lock)\n\n\n\n\nL-4",
+    {
+      "w": 1.5
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Option-3'></i>",
+    {
+      "w": 1.25
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Command-3'></i>",
+    {
+      "w": 2.25
+    },
+    "\n___\n\n\n\n\n(L-1)",
+    {
+      "w": 2
+    },
+    "\n___\n\n\n\n\n(L-1)",
+    {
+      "w": 1.5
+    },
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Command-3'></i>",
+    "\n___\n\n\n\n\n<i class='mss mss-Unicode-Option-3'></i>",
+    "\n___\n\n\n\n\nctl",
+    "\n___\n\n\n\n\nL-Fn"
+  ]
+]
