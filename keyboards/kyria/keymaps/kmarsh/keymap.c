@@ -13,96 +13,182 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include QMK_KEYBOARD_H
-
-enum layers {
-    _QWERTY = 0,
-    _LOWER,
-    _RAISE,
-    _ADJUST
-};
+#include "keymap.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* 
  * Base Layer: QWERTY
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * | ENC    |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  \ |   |
+ * | ENC    |   Q  |W(win)|   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  \ |   |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * | ESC    |   A  |   S  |  D   |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  ' "   |
+ * | ESC    |   A  |S(dsk)|  D   |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  ' "   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LSHFT  |   Z  |   X  |   C  |   V  |   B  | OPT  |      |  |      | OPT  |   N  |   M  | ,  < | . >  | /  ? | RSHFT  |
+ * | LSHFT  |Z(num)|   X  |   C  |   V  |   B  |OPTLDR|      |  |      |OPTMAC|   N  |   M  | ,  < | . >  |/?(fn)| RSHFT  |
  * `----------------------+------+------+------+------+ DELE |  |ENTER +------+------+------+------+----------------------'
  *                        | TAB  | CTRL | CMD  | BKSP |      |  |      |SPACE | CMD  | CTRL | ENC  |
- *                        |      |      |      |  L2  |  L4  |  |  L3  |  L1  |      |      |      |
+ *                        |      |  [   |  ]   | LOWR |(ext) |  |(ext) |RAISE |  (   |  )   |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
-      KC_MPLY,  KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
-      KC_ESC,   KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                                         KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-      KC_LSFT,  KC_Z,   KC_X,   KC_C,   KC_V,   KC_B, KC_LALT, LT(_RAISE, KC_DEL), LT(_LOWER, KC_ENT), KC_RALT, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-              KC_TAB, KC_LCTL, KC_LGUI, LT(_LOWER, KC_BSPC), LT(_RAISE, KC_DEL), LT(_LOWER, KC_ENT), LT(_RAISE, KC_SPC), KC_RGUI,  KC_RCTL, KC_MUTE
+      BSE_E1   ,KC_Q   ,W_WIN  ,KC_E   ,KC_R   ,KC_T                                       ,KC_Y   ,KC_U    ,KC_I    ,KC_O    ,KC_P     ,KC_BSLS,
+      KC_ESC   ,KC_A   ,KC_S   ,KC_D   ,KC_F   ,KC_G                                       ,KC_H   ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN  ,KC_QUOT,
+      KC_LSFT  ,KC_Z   ,KC_X   ,KC_C   ,KC_V   ,KC_B ,LDR_ALT ,XXXXXXX  ,XXXXXXX  ,DM_ALT  ,KC_N   ,KC_M    ,KC_COMM ,KC_DOT  ,FUN_SLSH ,KC_RSFT,
+                         KC_TAB ,CTL_LBRC ,GUI_RBRC  ,LWR_BSP ,DEL_FN   ,ENTER_FN ,RSE_SPC   ,GUI_LPRN ,CTL_RPRN ,BSE_E2
     ),
 /*
  * Lower Layer: Symbols
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |  !   |  @   |  {   |  }   |  |   |                              |      |      |      |      |      |  | \   |
+ * |  ENC   |      |      |      |      |      |                              |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |  #   |  $   |  (   |  )   |  `   |                              |   +  |  -   |  /   |  *   |  %   |  ' "   |
+ * |    ~   |  !   |  @   |  #   |  $   |  %   |                              |   ^  |  &   |  *   |  (   |  )   |   _    |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |  %   |  ^   |  [   |  ]   |  ~   |      |      |  |      |      |   &  |  =   |  ,   |  .   |  / ? | - _    |
- * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |  ;   |  =   |  |  =   |  ;   |      |      |      |
- *                        |      |      |      |      |      |  |      |      |      |      |      |
+ * |  TRNS  |      |      |      |      |      | TRNS |      |  |      | TRNS |      |      |      |      |      |  TRNS  |
+ * `----------------------+------+------+------+------+ TRNS |  | TRNS +------+------+------+------+----------------------'
+ *                        |      | TRNS | TRNS | TRNS |      |  |      | TRNS | TRNS | TRNS |  ENC |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_LOWER] = LAYOUT(
-      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, _______, _______, _______, _______, KC_BSLS,
-      _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                                      KC_PLUS, KC_MINS, KC_SLSH, KC_ASTR, KC_PERC, KC_QUOT,
-      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, KC_AMPR, KC_EQL,  KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
-                                 _______, _______, _______, KC_SCLN, KC_EQL,  KC_EQL,  KC_SCLN, _______, _______, _______
+      LWR_E1  ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX                                     ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+      KC_TILD ,KC_EXLM ,KC_AT   ,KC_HASH ,KC_DLR  ,KC_PERC                                     ,KC_CIRC ,KC_AMPR ,KC_ASTR ,KC_LPRN ,KC_RPRN ,KC_UNDS ,
+      _______ ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,_______ ,
+                           XXXXXXX ,_______ ,_______      ,_______ ,_______ ,_______ ,_______      ,_______ ,_______ ,LWR_E2
     ),
 /*
  * Raise Layer: Number keys, media, navigation
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |   1  |  2   |  3   |  4   |  5   |                              |  6   |  7   |  8   |  9   |  0   |        |
+ * |  ENC   |      |  =   | /(np)| *(np)|      |                              |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |      | Prev | Play | Next | VolUp|                              | Left | Down | Up   | Right|      |        |
+ * |  ` ~   |   1  |  2   |  3   |  4   |  5   |                              |  6   |  7   |  8   |  9   |  0   |  - _   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |      |      |      | Mute | VolDn|      |      |  |      |      | MLeft| Mdown| MUp  |MRight|      |        |
- * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |      |      |  |      |      |      |      |      |
- *                        |      |      |      |      |      |  |      |      |      |      |      |
+ * | TRNS   |      | SPC  | -(np)| +(np)|      | TRNS |      |  |      | TRNS |      |      |      |      |      |  TRNS  |
+ * `----------------------+------+------+------+------+ TRNS |  | TRNS +------+------+------+------+----------------------'
+ *                        |      | TRNS | TRNS | TRNS |      |  |      | TRNS | TRNS | TRNS | ENC  |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_RAISE] = LAYOUT(
-      _______, KC_1, 	  KC_2,    KC_3,    KC_4,    KC_5,                                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLU,                                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
-      _______, _______, _______, _______, KC_MUTE, KC_VOLD, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
-                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+      RSE_E1  ,XXXXXXX ,KC_EQL  ,KC_PSLS ,KC_PAST ,XXXXXXX                                     ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+      KC_GRV  ,KC_1    ,KC_2    ,KC_3    ,KC_4    ,KC_5                                        ,KC_6    ,KC_7    ,KC_8    ,KC_9    ,KC_0    ,KC_MINS ,
+      _______ ,XXXXXXX ,KC_SPC  ,KC_PMNS ,KC_PPLS ,XXXXXXX ,_______ ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,_______ ,
+                           XXXXXXX ,_______ ,_______      ,_______ ,_______ ,_______ ,_______ ,     _______, _______, RSE_E2
     ),
 /*
- * Adjust Layer: Function keys, RGB
- *
+ * Adjust Layer: RGB
+ * TODO: OLED? Macros? Sleep/Lock? Other?
+ 
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        | F1   |  F2  | F3   | F4   | F5   |                              | F6   | F7   |  F8  | F9   | F10  |        |
+ * |  ENC   |      |      |      |      |      |                              |      |      |      |      |      | RESET  |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        | TOG  | SAI  | HUI  | VAI  | MOD  |                              |      |      |      | F11  | F12  |        |
+ * |        | TOG  | SAI  | HUI  | VAI  | MOD  |                              |      |      |      |      |      |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |      | SAD  | HUD  | VAD  | RMOD |      |      |  |      |      |      |      |      |      |      |        |
- * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |      |      |  |      |      |      |      |      |
- *                        |      |      |      |      |      |  |      |      |      |      |      |
+ * |        |      | SAD  | HUD  | VAD  | RMOD | TRNS |      |  |      | TRNS |      |      |      |      |      |        |
+ * `----------------------+------+------+------+------+ TRNS |  | TRNS +------+------+------+------+----------------------'
+ *                        | GAME | TRNS | TRNS | TRNS |      |  |      | TRNS | TRNS | TRNS | ENC  |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_ADJUST] = LAYOUT(
-      _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                       KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
-      _______, RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI, RGB_MOD,                                     _______, _______, _______, KC_F11,  KC_F12,  _______,
-      _______, _______, RGB_SAD, RGB_HUD, RGB_VAD, RGB_RMOD,_______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+      ADJ_E1  ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX                                     ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,RESET   ,
+      XXXXXXX ,RGB_TOG ,RGB_SAI ,RGB_HUI ,RGB_VAI ,RGB_MOD                                     ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+      XXXXXXX ,XXXXXXX ,RGB_SAD ,RGB_HUD ,RGB_VAD ,RGB_RMOD,_______ ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+                           TO_GAME ,_______ ,_______       ,_______ ,_______ ,_______ ,_______      ,_______ ,_______ ,ADJ_E2
     ),
+ /*
+  * EXTEND -- Navigation etc.
+  *
+  * ,-------------------------------------------.                              ,-------------------------------------------.
+  * |  ENC   | MB_3 | MB_2 | M_UP | MB_1 |      |                              |      | HOME |  UP  | END  |      |        |
+  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+  * |  TRNS  |      | M_L  | M_DN | M_R  |      |                              |      | LEFT | DOWN |RIGHT |      |        |
+  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+  * |        |      |      |SCL_U |SCL_D |      | TRNS |      |  |      |DM_REC|DMSTOP| PGDN | PGUP |      |      |        |
+  * `----------------------+------+------+------+------+ TRNS |  | TRNS +------+------+------+------+----------------------'
+  *                        |      |      | ACL1 | ACL2 |      |  |      | CMD  | OPT  | CTL  | ENC  |
+  *                        `----------------------------------'  `----------------------------------'
+  */
+     [_EXTEND] = LAYOUT(
+       EXT_E1  ,KC_BTN3 ,KC_BTN2 ,KC_MS_U ,KC_BTN1 ,XXXXXXX                                     ,XXXXXXX ,KC_HOME ,KC_UP   ,KC_END  ,XXXXXXX ,XXXXXXX,
+       KC_ESC  ,XXXXXXX ,KC_MS_L ,KC_MS_D ,KC_MS_R ,XXXXXXX                                     ,XXXXXXX ,KC_LEFT ,KC_DOWN ,KC_RGHT ,XXXXXXX ,XXXXXXX,
+       XXXXXXX ,XXXXXXX ,XXXXXXX ,KC_WH_U ,KC_WH_D ,XXXXXXX ,_______ ,XXXXXXX ,XXXXXXX ,MREC_ALT,DM_RSTP ,KC_PGDN ,KC_PGUP ,XXXXXXX ,XXXXXXX ,XXXXXXX,
+                            XXXXXXX ,XXXXXXX ,KC_ACL1       ,KC_ACL2 ,_______ ,_______ ,KC_LGUI    ,KC_LOPT ,KC_LCTL ,EXT_E2
+     ),
+ /*
+  * FUNPAD
+  *
+  * ,-------------------------------------------.                              ,-------------------------------------------.
+  * |  ENC   |  F9  |  F10 |  F11 |  F12 |      |                              |      |      |      |      |      |        |
+  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+  * |        |  F5  |  F6  |  F7  |  F8  |      |                              |      | CTL  | SFT  | ALT  |      |        |
+  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+  * |        |  F1  |  F2  |  F3  |  F4  |      | TRNS |      |  |      | TRNS |      |      |      |      |      |        |
+  * `----------------------+------+------+------+------+ TRNS |  | TRNS +------+------+------+------+----------------------'
+  *                        |      | TRNS | TRNS | TRNS |      |  |      | TRNS | TRNS | TRNS | ENC  |
+  *                        `----------------------------------'  `----------------------------------'
+  */
+     [_FUNPAD] = LAYOUT(
+       FUN_E1  ,KC_F9   ,KC_F10  ,KC_F11  ,KC_F12  ,XXXXXXX                                     ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX,
+       XXXXXXX ,KC_F5   ,KC_F6   ,KC_F7   ,KC_F8   ,XXXXXXX                                     ,XXXXXXX ,KC_RCTRL,KC_RSFT ,KC_RALT ,XXXXXXX ,XXXXXXX,
+       XXXXXXX ,KC_F1   ,KC_F2   ,KC_F3   ,KC_F4   ,XXXXXXX ,_______ ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX,
+                            XXXXXXX ,_______ ,_______       ,_______ ,_______ ,_______ ,_______       ,_______ ,_______ ,FUN_E2
+     ),
+ /*
+  * NUMPAD
+  *
+  * ,-------------------------------------------.                              ,-------------------------------------------.
+  * |  ENC   |      |  F2  |      |      |      |                              |      |  7   |  8   |  9   |      |        |
+  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+  * |  TRNS  |      |  /   |  *   |  -   |      |                              |      |  4   |  5   |  6   |  -   |        |
+  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+  * |  TRNS  | TRNS |  +   |  =   |  F2  |      | TRNS |      |  |      |      |      |  1   |  2   |  3   |      |  TRNS  |
+  * `----------------------+------+------+------+------+ TRNS |  | TRNS +------+------+------+------+----------------------'
+  *                        |      | TRNS | TRNS | TRNS |      |  |      | TRNS |  0   |  ,   |  .   |
+  *                        `----------------------------------'  `----------------------------------'
+  */
+     [_NUMPAD] = LAYOUT(
+       NUM_E1  ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX                                     ,XXXXXXX ,KC_P7   ,KC_P8   ,KC_P9   ,XXXXXXX ,XXXXXXX,
+       _______ ,XXXXXXX ,KC_PSLS ,KC_PAST ,KC_MINS ,XXXXXXX                                     ,XXXXXXX ,KC_P4   ,KC_P5   ,KC_P6   ,KC_PMNS ,XXXXXXX,
+       _______ ,_______ ,KC_PPLS ,KC_PEQL ,KC_F2   ,KC_NLCK ,_______ ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,KC_P1   ,KC_P2   ,KC_P3   ,XXXXXXX ,_______,
+                            XXXXXXX ,_______ ,_______       ,_______ ,_______ ,_______ ,KC_P0         ,KC_COMM ,KC_DOT  ,NUM_E2
+     ),
+ /*
+  * GAMING
+  *
+  * ,-------------------------------------------.                              ,-------------------------------------------.
+  * |  ENC   | TAB  |  Q   |  W   |  E   |  R   |                              |      |      |      |      |      |        |
+  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+  * |  ESC   | SFT  |  A   |  S   |  D   |  F   |                              |      |      |      |      |      |        |
+  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+  * |  BASE  | CTL  |  1   |  2   |  3   |  4   |      |      |  |      |      |      |      |      |      |      |        |
+  * `----------------------+------+------+------+------+  V   |  |      +------+------+------+------+----------------------'
+  *                        |      |  X   |  C   | GSPC |      |  |      |      |      |      | ENC  |
+  *                        `----------------------------------'  `----------------------------------'
+  */
+     [_GAMING] = LAYOUT(
+       GAM_E1  ,KC_TAB  ,KC_Q    ,KC_W    ,KC_E    ,KC_R                                        ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+       KC_ESC  ,KC_LSFT ,KC_A    ,KC_S    ,KC_D    ,KC_F                                        ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+       TO_BASE ,KC_LCTL ,KC_1    ,KC_2    ,KC_3    ,KC_4    ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+                            XXXXXXX ,KC_X    ,KC_C          ,GAM_SPC ,KC_V    ,XXXXXXX ,XXXXXXX       ,XXXXXXX ,XXXXXXX ,GAM_E2
+     ),
+ /*
+  * GAMING OVERLAY
+  *
+  * ,-------------------------------------------.                              ,-------------------------------------------.
+  * |  ENC   | TRNS | WH_D | TRNS | WH_U |      |                              |      |      |      |      |      |        |
+  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+  * |  TRNS  | TRNS | TRNS | TRNS | TRNS |      |                              |      |      |      |      |      |        |
+  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+  * |        | TRNS |      |      |  M   |      |      |      |  |      |      |      |      |      |      |      |        |
+  * `----------------------+------+------+------+------+      |  |      +------+------+------+------+----------------------'
+  *                        |      |      |      | TRNS |      |  |      |      |      |      | ENC  |
+  *                        `----------------------------------'  `----------------------------------'
+  */
+     [_GAME_OVERLAY] = LAYOUT(
+       _______ ,_______ ,KC_WH_D ,_______ ,KC_WH_U ,_______                                     ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+       _______ ,_______ ,_______ ,_______ ,_______ ,_______                                     ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+       _______ ,_______ ,KC_P    ,KC_O    ,KC_M    ,_______ ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+                            XXXXXXX ,_______ ,_______       ,_______ ,_______ ,XXXXXXX ,XXXXXXX       ,XXXXXXX ,XXXXXXX ,XXXXXXX
+     ),
 // /*
 //  * Layer template
 //  *
@@ -112,21 +198,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  * |        |      |      |      |      |      |                              |      |      |      |      |      |        |
 //  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
 //  * |        |      |      |      |      |      |      |      |  |      |      |      |      |      |      |      |        |
-//  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
+//  * `----------------------+------+------+------+------+      |  |      +------+------+------+------+----------------------'
 //  *                        |      |      |      |      |      |  |      |      |      |      |      |
 //  *                        |      |      |      |      |      |  |      |      |      |      |      |
 //  *                        `----------------------------------'  `----------------------------------'
 //  */
 //     [_LAYERINDEX] = LAYOUT(
-//       _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
-//       _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
-//       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-//                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+//       _______ ,_______ ,_______ ,_______ ,_______ ,_______                                     ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
+//       _______ ,_______ ,_______ ,_______ ,_______ ,_______                                     ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
+//       _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,XXXXXXX ,XXXXXXX ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
+//                            _______ ,_______ ,_______       ,_______ ,_______ ,_______ ,_______       ,_______ ,_______ ,_______
 //     ),
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    return update_tri_layer_state(state, _RAISE, _EXTEND, _ADJUST);
 }
 
 #ifdef OLED_DRIVER_ENABLE

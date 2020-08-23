@@ -1,0 +1,110 @@
+#include "keymap.h"
+
+#if (__has_include("secrets.h") && !defined(NO_SECRETS))
+#include "secrets.h"
+#else
+// If the secret.h file is ever lost, simply create it again with this array being the only content
+static const char * const secrets[] = {
+  "no secrets to be found",
+  "no secrets to be found",
+  "no secrets to be found",
+  "no secrets to be found",
+  "no secrets to be found",
+  "no secrets to be found",
+  "no secrets to be found",
+};
+#endif
+
+LEADER_EXTERNS();
+
+void matrix_scan_leader(void) {
+    LEADER_DICTIONARY() {
+        leading = false;
+        leader_end();
+
+        // /////////////////////// //
+        // Application Invocations //
+        // /////////////////////// //
+        /*SEQ_ONE_KEY(KC_P) { // Invoke Password Manager
+            register_code(KC_LCTL);
+            register_code(KC_LALT);
+            register_code(KC_LSFT);
+            register_code(KC_P);
+            unregister_code(KC_P);
+            unregister_code(KC_LSFT);
+            unregister_code(KC_LALT);
+            unregister_code(KC_LCTL);
+        }*/
+
+        // //////// //
+        // Markdown //
+        // //////// //
+        SEQ_THREE_KEYS(KC_M, KC_C, KC_I) { // Markdown Inline Code
+            SEND_STRING("`` " SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+        }
+        SEQ_THREE_KEYS(KC_M, KC_C, KC_B) { // Markdown code block
+            SEND_STRING("```c" SS_LSFT("\n\n") "``` " SS_TAP(X_UP));
+        }
+        SEQ_TWO_KEYS(KC_M, KC_U) { // Markdown url
+            SEND_STRING("[]()" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+        }
+        SEQ_TWO_KEYS(KC_M, KC_B) { // Markdown bold
+            SEND_STRING("**" SS_TAP(X_LEFT));
+        }
+        SEQ_TWO_KEYS(KC_M, KC_I) { // Markdown italic
+            SEND_STRING("__" SS_TAP(X_LEFT));
+        }
+        SEQ_TWO_KEYS(KC_M, KC_S) { // Markdown strikethrough
+            SEND_STRING("~~~~" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+        }
+
+        // /// //
+        // QMK //
+        // /// //
+        SEQ_TWO_KEYS(KC_Q, KC_D) { // QMK Docs
+            SEND_STRING("https://docs.qmk.fm/#/");
+        }
+        SEQ_TWO_KEYS(KC_Q, KC_K) { // QMK User space
+            SEND_STRING("https://github.com/kylemarsh/qmk_firmware/tree/kyria/keyboards/kyria/keymaps/kmarsh");
+        }
+        SEQ_TWO_KEYS(KC_Q, KC_L) { // Kyria Layout Cheatsheet
+            SEND_STRING("https://github.com/kylemarsh/qmk_firmware/tree/kyria/keyboards/kyria/keymaps/kmarsh/keymap.c");
+        }
+
+        // ////// //
+        // Emojis //
+        // ////// //
+        SEQ_TWO_KEYS(KC_E, KC_Y) {
+            SEND_STRING(":yaytomato:");
+        }
+        SEQ_TWO_KEYS(KC_E, KC_A) {
+            SEND_STRING(":amaze:");
+        }
+
+        // /////// //
+        // Secrets //
+        // /////// //
+        // Contact
+        SEQ_TWO_KEYS(KC_C, KC_N) {      // Full Name
+            send_string(secrets[0]);
+        }
+        SEQ_TWO_KEYS(KC_C, KC_P) {      // Phone
+            send_string(secrets[1]);
+        }
+        SEQ_TWO_KEYS(KC_C, KC_E) {      // Email
+            send_string(secrets[2]);
+        }
+        SEQ_TWO_KEYS(KC_C, KC_A) {      // Stret Address
+            send_string(secrets[3]);
+        }
+        SEQ_TWO_KEYS(KC_C, KC_C) {      // City
+            send_string(secrets[4]);
+        }
+        SEQ_TWO_KEYS(KC_C, KC_S) {
+            send_string(secrets[5]);    // State
+        }
+        SEQ_TWO_KEYS(KC_C, KC_Z) {      // Zip
+            send_string(secrets[6]);
+        }
+    }
+}
