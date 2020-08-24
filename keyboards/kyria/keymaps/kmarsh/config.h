@@ -33,21 +33,25 @@
   //#define RGBLIGHT_LED_MAP {9,8,6,7,5,3,2,4,1,0,10,12,13,11,14,16,17,15,18,19}
 #endif
 
+//#define MASTER_RIGHT
 // If you are using an Elite C rev3 on the slave side, uncomment the lines below:
 #define SPLIT_USB_DETECT
 #define NO_USB_STARTUP_CHECK
 
-
+#ifdef LEADER_TIMEOUT
+  #undef LEADER_TIMEOUT
+#endif
 #define LEADER_TIMEOUT  750
-#define LEADER_PER_KEY_TIMING 750
+#define LEADER_PER_KEY_TIMING
 
+#define TAPPING_TERM_PER_KEY
 // Configs from Metheon that I may want to try out
-//#define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD
 
-//#ifdef TAPPING_TERM
-  //#undef TAPPING_TERM
-//#endif
-//#define TAPPING_TERM 200 
+#ifdef TAPPING_TERM
+  #undef TAPPING_TERM
+#endif
+#define TAPPING_TERM 200
 
 //#define MOUSEKEY_WHEEL_MAX_SPEED 12   // default is 8; higher is faster
 //#define MOUSEKEY_WHEEL_TIME_TO_MAX 0  // disable accel; scroll at const speed

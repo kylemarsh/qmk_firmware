@@ -30,14 +30,18 @@ enum layers {
 // Handy Mod-Taps
 #define CTL_LBRC            LCTL_T(KC_LBRC)
 #define GUI_RBRC            LGUI_T(KC_RBRC)
-#define GUI_LPRN            RGUI_T(KC_LPRN)
-#define CTL_RPRN            RCTL_T(KC_RPRN)
-#define LDR_ALT             LALT_T(KC_LEAD)
-#define DM_ALT              RALT_T(DM_PLY1)
-#define MREC_ALT            RALT_T(DM_REC1)
+#define GUI_LPRN            RGUI_T(KC_LPRN) // FIXME KC_LPRN is shifted
+#define CTL_RPRN            RCTL_T(KC_RPRN) // FIXME KC_RPRN is shifted
+//#define LDR_ALT             LALT_T(KC_LEAD)
+#define LDR_ALT             KC_LEAD
+//#define DM_ALT              RALT_T(DM_PLY1)
+//#define MREC_ALT            RALT_T(DM_REC1)
+//#define LDR_ALT             KC_LALT
+#define DM_ALT              KC_RALT
+#define MREC_ALT            KC_RALT
 
 // Hold W for modifier combo for hammerspoon window positioning commands
-#define W_WIN               MT(MOD_LGUI | MOD_LSFT, KC_W)
+#define W_WIN               MT(MOD_LGUI | MOD_LCTL, KC_W)
 // TODO: Define spaces movement (mod-tap with layer toggle? Can I do that?) for S
 
 // Encoder keys defined in encoders.h

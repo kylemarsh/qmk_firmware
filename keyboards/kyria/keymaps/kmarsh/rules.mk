@@ -1,7 +1,7 @@
 
 LINK_TIME_OPTIMIZATION_ENABLE = yes # Reduces compiled size of firmware
 
-DYNAMIC_MACRO_ENABLE          = yes # Enables dynamic macros
+DYNAMIC_MACRO_ENABLE          = no # Enables dynamic macros
 ENCODER_ENABLE                = yes # Enables the use of one or more encoders
 LEADER_ENABLE                 = yes # Enables leader key feature
 MOUSEKEY_ENABLE               = yes # Enables features to use keyboard as mouse

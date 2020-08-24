@@ -12,6 +12,8 @@ layout was an enormous source of inspiration and example code
   * `s` for holding `CTL` and moving to a layer with arrow keys under `hjkl`
   * Modifier sequences can be adjusted (hammerspoon) if desired/needed
   * Look into better dual-monitor support for hammerspoon at some point and add this
+* Combo thoughts
+  * move backspace and space to "fs" and "jl" combos?
 * Encoder thoughts:
   * BASE:
     * L: Vol | Mute

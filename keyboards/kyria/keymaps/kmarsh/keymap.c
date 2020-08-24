@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
       BSE_E1   ,KC_Q   ,W_WIN  ,KC_E   ,KC_R   ,KC_T                                       ,KC_Y   ,KC_U    ,KC_I    ,KC_O    ,KC_P     ,KC_BSLS,
       KC_ESC   ,KC_A   ,KC_S   ,KC_D   ,KC_F   ,KC_G                                       ,KC_H   ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN  ,KC_QUOT,
-      KC_LSFT  ,KC_Z   ,KC_X   ,KC_C   ,KC_V   ,KC_B ,LDR_ALT ,XXXXXXX  ,XXXXXXX  ,DM_ALT  ,KC_N   ,KC_M    ,KC_COMM ,KC_DOT  ,FUN_SLSH ,KC_RSFT,
+      KC_LSFT  ,NUM_Z  ,KC_X   ,KC_C   ,KC_V   ,KC_B ,LDR_ALT ,XXXXXXX  ,XXXXXXX  ,DM_ALT  ,KC_N   ,KC_M    ,KC_COMM ,KC_DOT  ,FUN_SLSH ,KC_RSFT,
                          KC_TAB ,CTL_LBRC ,GUI_RBRC  ,LWR_BSP ,DEL_FN   ,ENTER_FN ,RSE_SPC   ,GUI_LPRN ,CTL_RPRN ,BSE_E2
     ),
 /*
@@ -148,8 +148,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      [_NUMPAD] = LAYOUT(
        NUM_E1  ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX                                     ,XXXXXXX ,KC_P7   ,KC_P8   ,KC_P9   ,XXXXXXX ,XXXXXXX,
        _______ ,XXXXXXX ,KC_PSLS ,KC_PAST ,KC_MINS ,XXXXXXX                                     ,XXXXXXX ,KC_P4   ,KC_P5   ,KC_P6   ,KC_PMNS ,XXXXXXX,
-       _______ ,_______ ,KC_PPLS ,KC_PEQL ,KC_F2   ,KC_NLCK ,_______ ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,KC_P1   ,KC_P2   ,KC_P3   ,XXXXXXX ,_______,
-                            XXXXXXX ,_______ ,_______       ,_______ ,_______ ,_______ ,KC_P0         ,KC_COMM ,KC_DOT  ,NUM_E2
+       _______ ,_______ ,KC_PPLS ,KC_PEQL ,KC_F2   ,KC_NLCK ,_______ ,XXXXXXX ,XXXXXXX ,XXXXXXX ,KC_P0   ,KC_P1   ,KC_P2   ,KC_P3   ,XXXXXXX ,_______,
+                            XXXXXXX ,_______ ,_______       ,_______ ,_______ ,_______ ,_______     ,KC_COMM ,KC_DOT  ,NUM_E2
      ),
  /*
   * GAMING
@@ -211,8 +211,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     ),
 };
 
+void matrix_scan_user(void) {
+    matrix_scan_encoders();
+    matrix_scan_leader();
+}
+
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, _RAISE, _EXTEND, _ADJUST);
+    return update_tri_layer_state(state, _RAISE, _LOWER, _ADJUST);
 }
 
 #ifdef OLED_DRIVER_ENABLE
@@ -263,6 +268,21 @@ static void render_status(void) {
         case _ADJUST:
             oled_write_P(PSTR("Adjust\n"), false);
             break;
+        case _EXTEND:
+            oled_write_P(PSTR("Extend\n"), false);
+            break;
+        case _NUMPAD:
+            oled_write_P(PSTR("Numpad\n"), false);
+            break;
+        case _FUNPAD:
+            oled_write_P(PSTR("Function Pad\n"), false);
+            break;
+        case _GAMING:
+            oled_write_P(PSTR("Gaming\n"), false);
+            break;
+        case _GAME_OVERLAY:
+            oled_write_P(PSTR("Game (Raise)\n"), false);
+            break;
         default:
             oled_write_P(PSTR("Undefined\n"), false);
     }
@@ -283,23 +303,12 @@ void oled_task_user(void) {
 }
 #endif
 
-#ifdef ENCODER_ENABLE
-void encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
-        // Volume control
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-    }
-    else if (index == 1) {
-        // Page up/Page down
-        if (clockwise) {
-            tap_code(KC_PGDN);
-        } else {
-            tap_code(KC_PGUP);
-        }
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case W_WIN:
+            return TAPPING_TERM + 200;
+            break;
+        default:
+            return TAPPING_TERM;
     }
 }
-#endif

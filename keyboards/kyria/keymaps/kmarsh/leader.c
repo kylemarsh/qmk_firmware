@@ -25,6 +25,7 @@ void matrix_scan_leader(void) {
         // /////////////////////// //
         // Application Invocations //
         // /////////////////////// //
+
         /*SEQ_ONE_KEY(KC_P) { // Invoke Password Manager
             register_code(KC_LCTL);
             register_code(KC_LALT);
@@ -56,29 +57,6 @@ void matrix_scan_leader(void) {
         }
         SEQ_TWO_KEYS(KC_M, KC_S) { // Markdown strikethrough
             SEND_STRING("~~~~" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-        }
-
-        // /// //
-        // QMK //
-        // /// //
-        SEQ_TWO_KEYS(KC_Q, KC_D) { // QMK Docs
-            SEND_STRING("https://docs.qmk.fm/#/");
-        }
-        SEQ_TWO_KEYS(KC_Q, KC_K) { // QMK User space
-            SEND_STRING("https://github.com/kylemarsh/qmk_firmware/tree/kyria/keyboards/kyria/keymaps/kmarsh");
-        }
-        SEQ_TWO_KEYS(KC_Q, KC_L) { // Kyria Layout Cheatsheet
-            SEND_STRING("https://github.com/kylemarsh/qmk_firmware/tree/kyria/keyboards/kyria/keymaps/kmarsh/keymap.c");
-        }
-
-        // ////// //
-        // Emojis //
-        // ////// //
-        SEQ_TWO_KEYS(KC_E, KC_Y) {
-            SEND_STRING(":yaytomato:");
-        }
-        SEQ_TWO_KEYS(KC_E, KC_A) {
-            SEND_STRING(":amaze:");
         }
 
         // /////// //
