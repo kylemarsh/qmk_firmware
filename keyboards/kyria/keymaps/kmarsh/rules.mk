@@ -3,18 +3,18 @@ LINK_TIME_OPTIMIZATION_ENABLE = yes # Reduces compiled size of firmware
 
 DYNAMIC_MACRO_ENABLE          = no # Enables dynamic macros
 ENCODER_ENABLE                = yes # Enables the use of one or more encoders
-LEADER_ENABLE                 = yes # Enables leader key feature
+LEADER_ENABLE                 = no # Enables leader key feature
 MOUSEKEY_ENABLE               = yes # Enables features to use keyboard as mouse
 OLED_DRIVER_ENABLE            = yes # Enables the use of OLED displays
 RGBLIGHT_ENABLE               = yes # Enable keyboard RGB underglow
 
 SRC += encoders.c
-SRC += leader.c
+#SRC += leader.c
 
 # Unused Software Features
 AUTO_SHIFT_ENABLE               = no  # Shift by holding the key
 BOOTMAGIC_ENABLE                = no  # Configure firmware settings on the fly (deprecated?)
-COMBO_ENABLE                    = no  # Define chords that trigger different keypresses
+COMBO_ENABLE                    = yes  # Define chords that trigger different keypresses
 COMMAND_ENABLE                  = no  # Commands for debug and configuration
 CONSOLE_ENABLE                  = no
 GRAVE_ESC_ENABLE                = no  # Share grave and esc on same key

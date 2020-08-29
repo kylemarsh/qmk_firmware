@@ -5,6 +5,12 @@
 [Metheon](https://github.com/metheon/qmk_firmware/blob/metheon/users/metheon/readme.md)'s
 layout was an enormous source of inspiration and example code
 
+## TODO
+ * Write encoder logic (and solder encoders).
+ * fix mod-tap settings
+ * tapdances?
+ * put enter in the right place
+ * move space and backspace back out? Or swap raise key with cmd?
 ## Notes
 
 * Use Mod-Tap on letter keys to hold my window manager modifier sequences?
@@ -12,8 +18,14 @@ layout was an enormous source of inspiration and example code
   * `s` for holding `CTL` and moving to a layer with arrow keys under `hjkl`
   * Modifier sequences can be adjusted (hammerspoon) if desired/needed
   * Look into better dual-monitor support for hammerspoon at some point and add this
+* Additional Mod-tap thoughts:
+  * Put modifiers on homerow, if I figure out settings to make typing okay?
+  * Might make it hard to remember for nav layer?
 * Combo thoughts
-  * move backspace and space to "fs" and "jl" combos?
+  * ~~move backspace and space to "fs" and "jl" combos?~~ This was a terrible idea. enter isn't too bad like that, though.
+* Tapdance thoughts:
+  * Tapdance shift for capslock?
+  * Tapdance layer shifter?
 * Encoder thoughts:
   * BASE:
     * L: Vol | Mute

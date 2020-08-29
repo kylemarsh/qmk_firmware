@@ -77,14 +77,14 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             case _LOWER:
                 // unused as lower is activated on the left
                 break;
-            case _RAISE:
+            /*case _RAISE:
                 ctrl_tab(clockwise);
-                break;
-            case _ADJUST:
-                break;
-            case _EXTEND:
+                break;*/
+            /*case _ADJUST:*/
+                /*break;*/
+            /*case _EXTEND:
                 alt_tab(clockwise);
-                break;
+                break;*/
             case _GAMING:
                 volume_control(clockwise);
             default:
@@ -99,15 +99,15 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             case _LOWER:
                 zoom(clockwise);
                 break;
-            case _RAISE:
+            /*case _RAISE:
                 // unused as raise is activated on the right
-                break;
-            case _ADJUST:
-                // currently unused
-                break;
-            case _EXTEND:
+                break;*/
+            /*case _ADJUST:*/
+                /*// currently unused*/
+                /*break;*/
+            /*case _EXTEND:
                 media_control(clockwise);
-                break;
+                break;*/
             default:
                 // Do nothing
                 break;

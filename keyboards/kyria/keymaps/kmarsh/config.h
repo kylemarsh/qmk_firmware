@@ -38,20 +38,23 @@
 #define SPLIT_USB_DETECT
 #define NO_USB_STARTUP_CHECK
 
-#ifdef LEADER_TIMEOUT
-  #undef LEADER_TIMEOUT
-#endif
-#define LEADER_TIMEOUT  750
-#define LEADER_PER_KEY_TIMING
+#define COMBO_COUNT 1
+
+//#ifdef LEADER_TIMEOUT
+  //#undef LEADER_TIMEOUT
+//#endif
+//#define LEADER_TIMEOUT  750
+//#define LEADER_PER_KEY_TIMING
 
 #define TAPPING_TERM_PER_KEY
-// Configs from Metheon that I may want to try out
-#define PERMISSIVE_HOLD
+//#define PERMISSIVE_HOLD
 
 #ifdef TAPPING_TERM
   #undef TAPPING_TERM
 #endif
-#define TAPPING_TERM 200
+#define TAPPING_TERM 125
+#define TAPPING_FORCE_HOLD
+#define RETRO_TAPPING
 
 //#define MOUSEKEY_WHEEL_MAX_SPEED 12   // default is 8; higher is faster
 //#define MOUSEKEY_WHEEL_TIME_TO_MAX 0  // disable accel; scroll at const speed
