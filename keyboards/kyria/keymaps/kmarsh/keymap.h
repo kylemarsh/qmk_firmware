@@ -1,43 +1,39 @@
 #include QMK_KEYBOARD_H
+#include "tap_dance.h"
 #include "encoders.h"
 //#include "leader.h"
 
 enum layers {
     _QWERTY, // Base layer; qwerty layout
-    _LOWER,  // ??
-    //_ADJUST, // Keyboard adjustments (RGB, etc)
+    _SYMB,  // ??
     _NAV, // Navigation
     _PADS,  // Numpad on right, funciton pad on left
-    //_FUNPAD, // Function pad
-    //_NUMPAD, // Numpad
     _GAMING, // wasd layout for gaming
-    //_GAME_OVERLAY  // gaming layer overlay
 };
 
 // Layers
-#define KC_LOWER        MO(_LOWER)
-#define KC_RAISE        MO(_RAISE)
+#define KC_SYMB         MO(_SYMB)
 #define KC_NAV          MO(_NAV)
 #define KC_TO_GAME      TO(_GAMING)
 #define KC_TO_BASE      TO(_QWERTY)
 
 // Thumb keys
 #define KC_TC_L1B       KC_TAB
-#define KC_TC_L2B       KC_LALT
-#define KC_TC_L3B       KC_BSPC
-#define KC_TC_L4LB      KC_LGUI
-#define KC_TC_L4UB      KC_LCTL
-#define KC_TC_L5B       KC_LOWER
+#define KC_TC_L2B       KC_LCTL
+#define KC_TC_L3B       KC_LGUI
+#define KC_TC_L4LB      KC_BSPC
+#define KC_TC_L4UB      KC_LALT
+#define KC_TC_L5B       KC_SYMB
 
 #define KC_TC_R1B       KC_BSE_E2
-#define KC_TC_R2B       KC_RALT
-#define KC_TC_R3B       KC_SPC
-#define KC_TC_R4LB      KC_RGUI
-#define KC_TC_R4UB      KC_RCTL
-#define KC_TC_R5B       KC_LOWER
+#define KC_TC_R2B       KC_RCTL
+#define KC_TC_R3B       KC_RGUI
+#define KC_TC_R4LB      KC_SPC
+#define KC_TC_R4UB      KC_RALT
+#define KC_TC_R5B       KC_SYMB
 
-#define KC_TC_L3L       KC_DEL
-#define KC_TC_R3L       KC_ENTER
+#define KC_TC_L4LL       KC_DEL
+#define KC_TC_R4LL       KC_ENTER
 
 #define KC_TC_L3P       KC_TC_L3B
 #define KC_TC_L4LP      KC_TC_L4LB
@@ -57,11 +53,11 @@ enum layers {
 #define KC_RESET        RESET
 
 // Other special keys
-#define KC_ESC_NAV      LT(_NAV, KC_ESC) // Instead maybe tapdance the extend key?
+#define KC_ESC_NAV      LT(_NAV, KC_ESC) // Instead maybe tapdance the SYMB key?
 #define KC_PAD_Z        LT(_PADS, KC_Z)
 #define KC_PAD_SLSH     LT(_PADS, KC_SLSH)
 
-#define KC_W_WIN        MT(MOD_LGUI | MOD_LCTL, KC_W)
+#define KC_W_WIN        MT(MOD_LGUI | MOD_LCTL, KC_W) // FIXME if I can't get the tap-hold config working, consider tapdance
 // TODO: Define spaces movement (mod-tap with layer toggle? Can I do that?) for S
 
 //KC_MACROS
@@ -71,9 +67,9 @@ enum layers {
 //#define DEL_FN              LT(_EXTEND, KC_DEL)
 //#define ENTER_FN            LT(_EXTEND, KC_ENTER)
 //#define LWR_BSP             LT(_LOWER, KC_BSPC)
-//#define RSE_SPC             LT(_RAISE, KC_SPACE)
+//#define RSE_SPC             LT(_SYMB, KC_SPACE)
 //#define LWR_BSP             LOWER
-//#define RSE_SPC             RAISE
+//#define RSE_SPC             SYMB
 
 //#define GAM_SPC             LT(_GAME_OVERLAY, KC_SPACE)
 

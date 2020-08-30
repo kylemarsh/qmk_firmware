@@ -74,7 +74,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             case _QWERTY:
                 scrolling(clockwise);
                 break;
-            case _LOWER:
+            case _SYMB:
                 // unused as lower is activated on the left
                 break;
             /*case _RAISE:
@@ -96,7 +96,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             case _QWERTY:
                 volume_control(clockwise);
                 break;
-            case _LOWER:
+            case _SYMB:
                 zoom(clockwise);
                 break;
             /*case _RAISE:
