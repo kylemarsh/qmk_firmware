@@ -22,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
       ESC_NAV ,A       ,S       ,D       ,F       ,G                                           ,H       ,J       ,K       ,L       ,SCLN    ,QUOT    ,
  //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
-      SFT_CPS ,PAD_Z   ,X       ,C       ,V       ,B       ,TC_L4UB ,XXXXXXX ,XXXXXXX ,TC_R4UB ,N       ,M       ,COMM    ,DOT     ,PAD_SLSH,SFT_CPS ,
+      LSFT    ,PAD_Z   ,X       ,C       ,V       ,B       ,TC_L4UB ,XXXXXXX ,XXXXXXX ,TC_R4UB ,N       ,M       ,COMM    ,DOT     ,PAD_SLSH,RSFT    ,
  //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
                                  TC_L1B  ,TC_L2B  ,TC_L3B  ,TC_L4LB ,TC_L5B  ,TC_R5B  ,TC_R4LB ,TC_R3B  ,TC_R2B  ,TC_R1B
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
@@ -154,7 +154,17 @@ void oled_task_user(void) {
     }
 }*/
 
+/* Combos */
 const uint16_t PROGMEM enter_combo[] = {KC_J, KC_L, COMBO_END};
+const uint16_t PROGMEM hyphen_combo[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM plus_combo[] = {KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM underscore_combo[] = {KC_M, KC_DOT, COMBO_END};
+const uint16_t PROGMEM caps_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
+
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(enter_combo, KC_ENTER)
+    COMBO(enter_combo, KC_ENTER),
+    COMBO(hyphen_combo, KC_MINS),
+    COMBO(underscore_combo, KC_UNDS),
+    COMBO(plus_combo, KC_PLUS),
+    COMBO(caps_combo, KC_CAPSLOCK),
 };
