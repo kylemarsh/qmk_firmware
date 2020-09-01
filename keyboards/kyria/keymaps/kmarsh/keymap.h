@@ -17,7 +17,28 @@ enum layers {
 #define KC_TO_GAME      TO(_GAMING)
 #define KC_TO_BASE      TO(_QWERTY)
 
+// Home Row Modifiers
+#define KC_A_SFT        LSFT_T(KC_A)
+#define KC_S_OPT        LALT_T(KC_S)
+#define KC_D_CTL        LCTL_T(KC_D)
+#define KC_F_CMD        LGUI_T(KC_F)
+#define KC_J_CMD        RGUI_T(KC_J)
+#define KC_K_CTL        RCTL_T(KC_K)
+#define KC_L_OPT        RALT_T(KC_L)
+#define KC_SCLN_SFT     RSFT_T(KC_SCLN)
+
+#define KC_0_SFT        RSFT_T(KC_0)
+#define KC_1_SFT        LSFT_T(KC_1)
+#define KC_2_OPT        LALT_T(KC_2)
+#define KC_3_CTL        LCTL_T(KC_3)
+#define KC_4_CMD        LGUI_T(KC_4)
+#define KC_7_CMD        RGUI_T(KC_7)
+#define KC_8_CTL        RCTL_T(KC_8)
+#define KC_9_OPT        RALT_T(KC_9)
+#define KC_0_SFT        RSFT_T(KC_0)
+
 // Thumb keys
+// TODO: Edit these to have useful symbols
 #define KC_TC_L1B       KC_TAB
 #define KC_TC_L2B       KC_LCTL
 #define KC_TC_L3B       KC_LGUI
