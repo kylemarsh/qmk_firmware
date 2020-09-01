@@ -54,6 +54,7 @@ enum layers {
 
 // Other special keys
 #define KC_ESC_NAV      LT(_NAV, KC_ESC) // Instead maybe tapdance the SYMB key?
+#define KC_QUOT_NAV      LT(_NAV, KC_QUOT)
 #define KC_PAD_Z        LT(_PADS, KC_Z)
 #define KC_PAD_SLSH     LT(_PADS, KC_SLSH)
 
