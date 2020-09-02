@@ -21,19 +21,19 @@ enum layers {
 #define KC_TC_L1B       KC_TAB
 #define KC_TC_L2B       KC_LCTL
 #define KC_TC_L3B       KC_LGUI
-#define KC_TC_L4LB      KC_BSPC
+#define KC_TC_L4LB      LT(_SYMB, KC_BSPC)
 #define KC_TC_L4UB      KC_LALT
-#define KC_TC_L5B       KC_SYMB
+#define KC_TC_L5B       KC_DEL
 
 #define KC_TC_R1B       KC_BSE_E2
 #define KC_TC_R2B       KC_RCTL
 #define KC_TC_R3B       KC_RGUI
-#define KC_TC_R4LB      KC_SPC
+#define KC_TC_R4LB      LT(_SYMB, KC_SPC)
 #define KC_TC_R4UB      KC_RALT
-#define KC_TC_R5B       KC_SYMB
+#define KC_TC_R5B       KC_ENTER
 
-#define KC_TC_L4LL       KC_DEL
-#define KC_TC_R4LL       KC_ENTER
+#define KC_TC_L4LL      KC_TRNS
+#define KC_TC_R4LL      KC_TRNS
 
 #define KC_TC_L3P       KC_TC_L3B
 #define KC_TC_L4LP      KC_TC_L4LB
@@ -54,7 +54,7 @@ enum layers {
 
 // Other special keys
 #define KC_ESC_NAV      LT(_NAV, KC_ESC) // Instead maybe tapdance the SYMB key?
-#define KC_QUOT_NAV      LT(_NAV, KC_QUOT)
+#define KC_QUOT_NAV     LT(_NAV, KC_QUOT)
 #define KC_PAD_Z        LT(_PADS, KC_Z)
 #define KC_PAD_SLSH     LT(_PADS, KC_SLSH)
 

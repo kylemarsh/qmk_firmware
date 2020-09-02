@@ -75,18 +75,14 @@
 //#define LEADER_TIMEOUT  750
 //#define LEADER_PER_KEY_TIMING
 
-/*******************/
+/******************/
 /* Mod-Tap Config */
 /******************/
+#define TAPPING_TERM 200
+#define PERMISSIVE_HOLD
+#define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_TERM_PER_KEY
-//#define PERMISSIVE_HOLD
 
-#ifdef TAPPING_TERM
-  #undef TAPPING_TERM
-#endif
-#define TAPPING_TERM 125
-#define TAPPING_FORCE_HOLD
-#define RETRO_TAPPING
 
 /****************/
 /* Mouse Config */
