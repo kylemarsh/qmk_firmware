@@ -88,6 +88,23 @@
 /* Mouse Config */
 /****************/
 // TODO -- fiddle with mousekeys options
-#define MOUSEKEY_WHEEL_TIME_TO_MAX 0  // disable accel; scroll at const speed
-#define MOUSEKEY_WHEEL_MAX_SPEED 12   // default is 8; higher is faster
+#define MK_3_SPEED
+#define MK_MOMENTARY_ACCEL
+
+#define MOUSEKEY_WHEEL_DELAY 50
+#define MOUSEKEY_DELAY 50
+#define MOUSEKEY_INTERVAL 16
+
+#define MK_C_OFFSET_0      3
+#define MK_C_OFFSET_1      8
+#define MK_C_OFFSET_UNMOD 12
+#define MK_C_OFFSET_2     24
+
+#define MK_W_INTERVAL_0      120
+#define MK_W_INTERVAL_UNMOD   80
+#define MK_W_INTERVAL_1       40
+#define MK_W_INTERVAL_2       20
+//#define MOUSEKEY_WHEEL_TIME_TO_MAX 0  // disable accel; scroll at const speed
+//#define MOUSEKEY_MAX_SPEED 7
+//#define MOUSEKEY_WHEEL_MAX_SPEED 12   // default is 8; higher is faster
 
