@@ -18,57 +18,57 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_kc(
  //,--------------------,----------------------------------.                                   ,-----------------------------------------------------.
-      BSE_E1  ,Q       ,W_WIN   ,E       ,R       ,T                                           ,Y       ,U       ,I       ,O       ,P       ,BSLS    ,
+      TAB     ,Q       ,W_WIN   ,E       ,R       ,T                                           ,Y       ,U       ,I       ,O       ,P       ,BSLS    ,
  //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
       ESC_NAV ,A_SFT   ,S_OPT   ,D_CTL   ,F_CMD   ,G                                           ,H       ,J_CMD   ,K_CTL   ,L_OPT   ,SCLN_SFT,QUOT_NAV,
  //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
-      MINS    ,PAD_Z   ,X       ,C       ,V       ,B       ,TC_L4UB ,XXXXXXX ,XXXXXXX ,TC_R4UB ,N       ,M       ,COMM    ,DOT     ,PAD_SLSH,EQUAL   ,
+      BSE_E1  ,PAD_Z   ,X       ,C       ,V       ,B       ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,N       ,M       ,COMM    ,DOT     ,PAD_SLSH,BSE_E2  ,
  //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
-                                 TC_L1B  ,TC_L2B  ,TC_L3B  ,TC_L4LB ,TC_L5B  ,TC_R5B  ,TC_R4LB ,TC_R3B  ,TC_R2B  ,TC_R1B
+                                 LBRC    ,RBRC    ,MINS    ,SYM_BKS ,DEL     ,ENTER   ,SYM_SPC ,EQUAL   ,LPRN    ,RPRN
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
     ),
     [_SYMB] = LAYOUT_kc(
  //,--------------------,----------------------------------.                                   ,-----------------------------------------------------.
-      LWR_E1  ,XXXXXXX ,XXXXXXX ,LBRC    ,RBRC    ,XXXXXXX                                     ,XXXXXXX ,XXXXXXX ,MINS    ,EQUAL   ,XXXXXXX ,_______ ,
+      XXXXXXX ,XXXXXXX ,XXXXXXX ,LBRC    ,RBRC    ,XXXXXXX                                     ,XXXXXXX ,XXXXXXX ,MINS    ,EQUAL   ,XXXXXXX ,_______ ,
  //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
       GRV     ,1_SFT   ,2_OPT   ,3_CTL   ,4_CMD   ,5                                           ,6       ,7_CMD   ,8_CTL   ,9_OPT   ,0_SFT   ,_______ ,
  //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
-      TILD    ,EXLM    ,AT      ,HASH    ,DLR     ,PERC    ,_______ ,XXXXXXX ,XXXXXXX ,_______ ,CIRC    ,AMPR    ,ASTR    ,LPRN    ,RPRN    ,_______ ,
+      LWR_E1  ,EXLM    ,AT      ,HASH    ,DLR     ,PERC    ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,CIRC    ,AMPR    ,ASTR    ,LPRN    ,RPRN    ,LWR_E2  ,
  //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
-                                 _______ ,_______ ,_______ ,TC_L4LL ,_______ ,_______ ,TC_R4LL ,_______ ,_______ ,LWR_E2
+                                 _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,LWR_E2
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
     ),
     [_NAV] = LAYOUT_kc(
  //,--------------------,----------------------------------.                                   ,-----------------------------------------------------.
-      NAV_E1  ,BTN3    ,BTN3    ,MS_U    ,BTN1    ,XXXXXXX                                     ,XXXXXXX ,HOME    ,END     ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+      _______ ,LSFT    ,BTN3    ,MS_U    ,BTN1    ,XXXXXXX                                     ,XXXXXXX ,HOME    ,END     ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
  //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
       _______ ,XXXXXXX ,MS_L    ,MS_D    ,MS_R    ,XXXXXXX                                     ,LEFT    ,DOWN    ,UP      ,RIGHT   ,XXXXXXX ,_______ ,
  //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
-      _______ ,XXXXXXX ,XXXXXXX ,WH_U    ,WH_D    ,XXXXXXX ,LSFT    ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,PGDN    ,PGUP    ,LPRN    ,RPRN    ,_______ ,
+      NAV_E1  ,XXXXXXX ,XXXXXXX ,WH_U    ,WH_D    ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,PGDN    ,PGUP    ,LPRN    ,RPRN    ,NAV_E2  ,
  //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
-                                 _______ ,LGUI    ,LCTL    ,LALT    ,_______ ,_______ ,ACL0    ,ACL1    ,ACL2    ,NAV_E2
+                                 _______ ,LGUI    ,LCTL    ,LALT    ,_______ ,_______ ,ACL0    ,ACL1    ,ACL2    ,XXXXXXX
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
     ),
     [_PADS] = LAYOUT_kc(
  //,--------------------,----------------------------------.                                   ,-----------------------------------------------------.
-      PAD_E1  ,XXXXXXX ,F9      ,F10     ,F11     ,F12                                         ,XXXXXXX ,P7      ,P8      ,P9      ,XXXXXXX ,XXXXXXX ,
+      TO_GAME ,XXXXXXX ,F9      ,F10     ,F11     ,F12                                         ,XXXXXXX ,P7      ,P8      ,P9      ,XXXXXXX ,XXXXXXX ,
  //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
       _______ ,XXXXXXX ,F5      ,F6      ,F7      ,F8                                          ,XXXXXXX ,P4      ,P5      ,P6      ,MINS    ,XXXXXXX ,
  //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
-      TO_GAME ,XXXXXXX ,F1      ,F2      ,F3      ,F4      ,LSFT    ,XXXXXXX ,XXXXXXX ,_______ ,P0      ,P1      ,P2      ,P3      ,UNDS    ,_______ ,
+      PAD_E1  ,XXXXXXX ,F1      ,F2      ,F3      ,F4      ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,P0      ,P1      ,P2      ,P3      ,UNDS    ,PAD_E2 ,
  //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
-                                 _______ ,LGUI    ,LCTL    ,LALT    ,_______ ,_______ ,_______ ,_______ ,_______ ,PAD_E2
+                                 _______ ,LGUI    ,LCTL    ,LALT    ,_______ ,_______ ,_______ ,DOT     ,COMM    ,_______
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
     ),
     [_GAMING] = LAYOUT_kc(
  //,-------------------,-----------------------------------.                                   ,-----------------------------------------------------.
-      GAM_E1  ,TAB     ,Q       ,W       ,E       ,R                                           ,XXXXXXX ,RGB_VAD ,RGB_VAI ,XXXXXXX ,XXXXXXX ,RESET   ,
+      TO_BASE ,TAB     ,Q       ,W       ,E       ,R                                           ,XXXXXXX ,RGB_VAD ,RGB_VAI ,XXXXXXX ,XXXXXXX ,RESET   ,
  //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
       ESC     ,LSFT    ,A       ,S       ,D       ,F                                           ,XXXXXXX ,RGB_HUD ,RGB_HUI ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
  //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
-      TO_BASE ,LCTL    ,1       ,2       ,3       ,4       ,_______ ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,RGB_SAD ,RGB_SAI ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+      GAM_E1  ,LCTL    ,1       ,2       ,3       ,4       ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,RGB_SAD ,RGB_SAI ,XXXXXXX ,XXXXXXX ,GAM_E2  ,
  //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
-                                 XXXXXXX ,X       ,C       ,SPC     ,V       ,RGB_TOG ,RGB_MOD ,RGB_RMOD,_______ ,PAD_E2
+                                 XXXXXXX ,X       ,C       ,SPC     ,V       ,RGB_TOG ,RGB_MOD ,RGB_RMOD,XXXXXXX ,XXXXXXX
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
     ),
 };
@@ -155,14 +155,12 @@ void oled_task_user(void) {
 }*/
 
 /* Combos */
-const uint16_t PROGMEM enter_combo[] = {KC_J, KC_L, COMBO_END};
 const uint16_t PROGMEM hyphen_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM plus_combo[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM underscore_combo[] = {KC_M, KC_DOT, COMBO_END};
-const uint16_t PROGMEM caps_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
+const uint16_t PROGMEM caps_combo[] = {KC_A, KC_SCLN, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(enter_combo, KC_ENTER),
     COMBO(hyphen_combo, KC_MINS),
     COMBO(underscore_combo, KC_UNDS),
     COMBO(plus_combo, KC_PLUS),

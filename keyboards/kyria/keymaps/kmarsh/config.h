@@ -60,7 +60,7 @@
 /****************/
 /* Combo Config */
 /****************/
-#define COMBO_COUNT 5
+#define COMBO_COUNT 4
 
 /*******************/
 /* Tapdance Config */
@@ -78,7 +78,7 @@
 /******************/
 /* Mod-Tap Config */
 /******************/
-#define TAPPING_TERM 200
+#define TAPPING_TERM 175
 #define PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_TERM_PER_KEY
@@ -88,6 +88,6 @@
 /* Mouse Config */
 /****************/
 // TODO -- fiddle with mousekeys options
-//#define MOUSEKEY_WHEEL_MAX_SPEED 12   // default is 8; higher is faster
-//#define MOUSEKEY_WHEEL_TIME_TO_MAX 0  // disable accel; scroll at const speed
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 0  // disable accel; scroll at const speed
+#define MOUSEKEY_WHEEL_MAX_SPEED 12   // default is 8; higher is faster
 
