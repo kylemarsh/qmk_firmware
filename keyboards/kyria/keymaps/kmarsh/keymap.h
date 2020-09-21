@@ -18,6 +18,7 @@ enum layers {
 #define KC_TO_BASE      TO(_QWERTY)
 
 // Home Row Modifiers
+#define KC_TAB_SFT      LSFT_T(KC_TAB)
 #define KC_A_SFT        LSFT_T(KC_A)
 #define KC_S_OPT        LALT_T(KC_S)
 #define KC_D_CTL        LCTL_T(KC_D)
@@ -26,6 +27,7 @@ enum layers {
 #define KC_K_CTL        RCTL_T(KC_K)
 #define KC_L_OPT        RALT_T(KC_L)
 #define KC_SCLN_SFT     RSFT_T(KC_SCLN)
+#define KC_BSLS_SFT     RSFT_T(KC_BSLS)
 
 #define KC_0_SFT        RSFT_T(KC_0)
 #define KC_1_SFT        LSFT_T(KC_1)
