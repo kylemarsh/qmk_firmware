@@ -158,7 +158,7 @@ void oled_task_user(void) {
 const uint16_t PROGMEM hyphen_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM plus_combo[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM underscore_combo[] = {KC_M, KC_DOT, COMBO_END};
-const uint16_t PROGMEM caps_combo[] = {KC_X, KC_DOT, COMBO_END};
+const uint16_t PROGMEM caps_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(hyphen_combo, KC_MINS),
