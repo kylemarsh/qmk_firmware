@@ -29,7 +29,6 @@ enum layers {
 #define KC_SCLN_SFT     RSFT_T(KC_SCLN)
 #define KC_BSLS_SFT     RSFT_T(KC_BSLS)
 
-#define KC_0_SFT        RSFT_T(KC_0)
 #define KC_1_SFT        LSFT_T(KC_1)
 #define KC_2_OPT        LALT_T(KC_2)
 #define KC_3_CTL        LCTL_T(KC_3)
@@ -39,8 +38,14 @@ enum layers {
 #define KC_9_OPT        RALT_T(KC_9)
 #define KC_0_SFT        RSFT_T(KC_0)
 
+#define KC_F5_OPT       LALT_T(KC_F5)
+#define KC_F6_CTL       LCTL_T(KC_F6)
+#define KC_F7_GUI       LGUI_T(KC_F7)
+#define KC_P4_GUI       RGUI_T(KC_4)
+#define KC_P5_CTL       RCTL_T(KC_5)
+#define KC_P6_OPT       RALT_T(KC_6)
+
 // Thumb keys
-// TODO: Edit these to have useful symbols
 #define KC_SYM_BKS         LT(_SYMB, KC_BSPC)
 #define KC_SYM_SPC         LT(_SYMB, KC_SPC)
 
@@ -62,30 +67,12 @@ enum layers {
 #define KC_PAD_Z        LT(_PADS, KC_Z)
 #define KC_PAD_SLSH     LT(_PADS, KC_SLSH)
 
-#define KC_W_WIN        MT(MOD_LGUI | MOD_LCTL, KC_W) // FIXME if I can't get the tap-hold config working, consider tapdance
+#define KC_W_WIN        MT(MOD_LGUI | MOD_LCTL, KC_W)
 // TODO: Define spaces movement (mod-tap with layer toggle? Can I do that?) for S
 
 //KC_MACROS
 #define KC________      KC_TRNS
 #define KC_XXXXXXX      KC_NO
-
-//#define DEL_FN              LT(_EXTEND, KC_DEL)
-//#define ENTER_FN            LT(_EXTEND, KC_ENTER)
-//#define LWR_BSP             LT(_LOWER, KC_BSPC)
-//#define RSE_SPC             LT(_SYMB, KC_SPACE)
-//#define LWR_BSP             LOWER
-//#define RSE_SPC             SYMB
-
-//#define GAM_SPC             LT(_GAME_OVERLAY, KC_SPACE)
-
-//#define CTL_LBRC            LCTL_T(KC_LBRC)
-//#define GUI_RBRC            LGUI_T(KC_RBRC)
-//#define GUI_LPRN            RGUI_T(KC_LPRN) // FIXME KC_LPRN is shifted
-//#define CTL_RPRN            RCTL_T(KC_RPRN) // FIXME KC_RPRN is shifted
-//#define LDR_ALT             LALT_T(KC_LEAD)
-//#define DM_ALT              RALT_T(DM_PLY1)
-//#define MREC_ALT            RALT_T(DM_REC1)
-
 
 // Encoder keys defined in encoders.h
 

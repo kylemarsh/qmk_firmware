@@ -22,20 +22,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
       ESC_NAV ,A_SFT   ,S_OPT   ,D_CTL   ,F_CMD   ,G                                           ,H       ,J_CMD   ,K_CTL   ,L_OPT   ,SCLN_SFT,QUOT_NAV,
  //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
-      LSFT    ,PAD_Z   ,X       ,C       ,V       ,B       ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,N       ,M       ,COMM    ,DOT     ,PAD_SLSH,RSFT    ,
+      SFT_CPS ,PAD_Z   ,X       ,C       ,V       ,B       ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,N       ,M       ,COMM    ,DOT     ,PAD_SLSH,RSFT    ,
  //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
-                                 BSE_E1  ,LBRC    ,RBRC    ,SYM_BKS ,DEL     ,ENTER   ,SYM_SPC ,MINS    ,EQUAL   ,BSE_E2
+                                 BSE_E1  ,EQUAL   ,MINS    ,SYM_BKS ,DEL     ,ENTER   ,SYM_SPC ,UNDS    ,PLUS    ,BSE_E2
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
     ),
     [_SYMB] = LAYOUT_kc(
  //,--------------------,----------------------------------.                                   ,-----------------------------------------------------.
-      XXXXXXX ,XXXXXXX ,XXXXXXX ,LBRC    ,RBRC    ,XXXXXXX                                     ,XXXXXXX ,XXXXXXX ,MINS    ,EQUAL   ,XXXXXXX ,_______ ,
+      XXXXXXX ,XXXXXXX ,LBRC    ,LCBR    ,RCBR    ,RBRC                                        ,XXXXXXX ,XXXXXXX ,LPRN    ,RPRN    ,XXXXXXX ,_______ ,
  //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
       GRV     ,1_SFT   ,2_OPT   ,3_CTL   ,4_CMD   ,5                                           ,6       ,7_CMD   ,8_CTL   ,9_OPT   ,0_SFT   ,_______ ,
  //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
       _______ ,EXLM    ,AT      ,HASH    ,DLR     ,PERC    ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,CIRC    ,AMPR    ,ASTR    ,LPRN    ,RPRN    ,_______ ,
  //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
-                                 LWR_E1  ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,LWR_E2
+                                 SYM_E1  ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,SYM_E2
+ //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
+    ),
+    [_PADS] = LAYOUT_kc(
+ //,--------------------,----------------------------------.                                   ,-----------------------------------------------------.
+      TO_GAME ,XXXXXXX ,F9      ,F10     ,F11     ,F12                                         ,PSLS    ,P7      ,P8      ,P9      ,PAST    ,_______ ,
+ //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
+      _______ ,XXXXXXX ,F5_OPT  ,F6_CTL  ,F7_GUI  ,F8                                          ,PEQL    ,P4_GUI  ,P5_CTL  ,P6_OPT  ,MINS    ,XXXXXXX ,
+ //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
+      _______ ,XXXXXXX ,F1      ,F2      ,F3      ,F4      ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,COMM    ,P1      ,P2      ,P3      ,PPLS    ,_______ ,
+ //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
+                                 PAD_E1  ,_______ ,_______ ,_______ ,_______ ,_______ ,_______ ,P0      ,PDOT    ,PAD_E2
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
     ),
     [_NAV] = LAYOUT_kc(
@@ -49,26 +60,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  NAV_E1  ,LGUI    ,LCTL    ,LALT    ,_______ ,_______ ,ACL0    ,ACL1    ,ACL2    ,NAV_E2
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
     ),
-    [_PADS] = LAYOUT_kc(
- //,--------------------,----------------------------------.                                   ,-----------------------------------------------------.
-      TO_GAME ,XXXXXXX ,F9      ,F10     ,F11     ,F12                                         ,XXXXXXX ,P7      ,P8      ,P9      ,XXXXXXX ,XXXXXXX ,
- //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
-      _______ ,XXXXXXX ,F5      ,F6      ,F7      ,F8                                          ,XXXXXXX ,P4      ,P5      ,P6      ,MINS    ,XXXXXXX ,
- //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
-      _______ ,XXXXXXX ,F1      ,F2      ,F3      ,F4      ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,P0      ,P1      ,P2      ,P3      ,UNDS    ,_______ ,
- //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
-                                 PAD_E1  ,LGUI    ,LCTL    ,LALT    ,_______ ,_______ ,_______ ,DOT     ,COMM    ,PAD_E2
- //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
-    ),
     [_GAMING] = LAYOUT_kc(
  //,-------------------,-----------------------------------.                                   ,-----------------------------------------------------.
-      TO_BASE ,TAB     ,Q       ,W       ,E       ,R                                           ,XXXXXXX ,RGB_VAD ,RGB_VAI ,XXXXXXX ,XXXXXXX ,RESET   ,
+      TO_BASE ,TAB     ,Q       ,W       ,E       ,R                                           ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,RESET   ,
  //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
-      ESC     ,LSFT    ,A       ,S       ,D       ,F                                           ,XXXXXXX ,RGB_HUD ,RGB_HUI ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+      ESC     ,LSFT    ,A       ,S       ,D       ,F                                           ,XXXXXXX ,RGUI    ,RCTL    ,ROPT    ,RSFT    ,XXXXXXX ,
  //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
-      _______ ,LCTL    ,1       ,2       ,3       ,4       ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,RGB_SAD ,RGB_SAI ,XXXXXXX ,XXXXXXX ,_______ ,
+      _______ ,LCTL    ,1       ,2       ,3       ,4       ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,_______ ,
  //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
-                                 GAM_E1  ,X       ,C       ,SPC     ,V       ,RGB_TOG ,RGB_MOD ,RGB_RMOD,XXXXXXX ,GAM_E2
+                                 GAM_E1  ,X       ,C       ,SPC     ,V       ,RGB_MOD ,RGB_RMOD,RGB_TOG ,XXXXXXX ,GAM_E2
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
     ),
 };
@@ -107,13 +107,13 @@ static void render_kyria_logo(void) {
 //TODO: split layer hints by keyboard side?
 static void render_status(void) {
     // Host Keyboard Layer Status
-    oled_write_P(PSTR("Layer: "), false);
+    oled_write_P(PSTR("Layer:\n"), false);
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
-            oled_write_P(PSTR("Default (qwerty)\n"), false);
+            oled_write_P(PSTR("Qwerty\n"), false);
             break;
         case _SYMB:
-            oled_write_P(PSTR("BRC\nNumbers\nSymbols\n"), false);
+            oled_write_P(PSTR("BRC\nSymbols\n"), false);
             break;
         case _NAV:
             oled_write_P(PSTR("NAV\n<-Mouse | Arrows->\n"), false);
@@ -158,7 +158,7 @@ void oled_task_user(void) {
 const uint16_t PROGMEM hyphen_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM plus_combo[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM underscore_combo[] = {KC_M, KC_DOT, COMBO_END};
-const uint16_t PROGMEM caps_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
+const uint16_t PROGMEM caps_combo[] = {KC_SFT_CPS, KC_RSFT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(hyphen_combo, KC_MINS),

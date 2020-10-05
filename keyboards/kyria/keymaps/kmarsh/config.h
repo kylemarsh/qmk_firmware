@@ -24,6 +24,9 @@
 #define SPLIT_USB_DETECT
 #define NO_USB_STARTUP_CHECK
 
+#define ENCODER_DIRECTION_FLIP
+// #define ENCODER_RESOLUTION 4
+
 /***************/
 /* OLED Config */
 /***************/
@@ -100,8 +103,8 @@
 #define MK_C_OFFSET_2     24
 
 #define MK_W_INTERVAL_0      120
-#define MK_W_INTERVAL_UNMOD  100
-#define MK_W_INTERVAL_1       60
+#define MK_W_INTERVAL_1       80
+#define MK_W_INTERVAL_UNMOD   60
 #define MK_W_INTERVAL_2       20
 //#define MOUSEKEY_WHEEL_TIME_TO_MAX 0  // disable accel; scroll at const speed
 //#define MOUSEKEY_MAX_SPEED 7
