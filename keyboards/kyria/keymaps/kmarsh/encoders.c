@@ -3,8 +3,10 @@
 // For the alt/cmd tab encoder actions
 bool     is_alt_tab_active = false;
 bool     is_cmd_tab_active = false;
+bool     is_ctl_tab_active = false;
 uint16_t alt_tab_timer     = 0;
 uint16_t cmd_tab_timer     = 0;
+uint16_t ctl_tab_timer     = 0;
 
 void matrix_scan_encoders(void) {
     if (is_alt_tab_active) {
@@ -17,6 +19,12 @@ void matrix_scan_encoders(void) {
         if (timer_elapsed(cmd_tab_timer) > 750) {
             unregister_code(KC_LCMD);
             is_cmd_tab_active = false;
+        }
+    }
+    if (is_ctl_tab_active) {
+        if (timer_elapsed(ctl_tab_timer) > 750) {
+            unregister_code(KC_LCTL);
+            is_ctl_tab_active = false;
         }
     }
 }
@@ -61,6 +69,14 @@ void zoom(bool clockwise) {
     }
 }
 
+void cycle_tabs(bool clockwise) {
+    if (clockwise) {
+        tap_code16(RGUI(RSFT(KC_RBRC)));
+    } else {
+        tap_code16(RGUI(RSFT(KC_LBRC)));
+    }
+}
+
 void alt_tab(bool clockwise) {
     if (!is_alt_tab_active) {
         is_alt_tab_active = true;
@@ -75,10 +91,15 @@ void alt_tab(bool clockwise) {
 }
 
 void ctrl_tab(bool clockwise) {
+    if (!is_ctl_tab_active) {
+        is_ctl_tab_active = true;
+        register_code(KC_LCTL);
+    }
+    ctl_tab_timer = timer_read();
     if (clockwise) {
-        tap_code16(C(KC_TAB));
+        tap_code16(KC_TAB);
     } else {
-        tap_code16(S(C(KC_TAB)));
+        tap_code16(S(KC_TAB));
     }
 }
 
@@ -140,7 +161,7 @@ void rgb_enc(bool clockwise) {
     } else {
         ccw_f();
     }
-} 
+}
 
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {  // Left encoder
@@ -151,7 +172,9 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             case _SYMB:
                 break;
             case _NAV:
-                cmd_tab(clockwise);
+                /*cmd_tab(clockwise);*/
+                cycle_tabs(clockwise);
+                /*ctrl_tab(clockwise);*/
                 break;
             case _GAMING:
                 rgb_enc(clockwise);
@@ -179,3 +202,4 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         }
     }
 }
+

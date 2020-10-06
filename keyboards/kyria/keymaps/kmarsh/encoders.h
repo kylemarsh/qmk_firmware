@@ -14,5 +14,4 @@
 #define KC_GAM_E1             RGB_TOG
 #define KC_GAM_E2             KC_MUTE
 
-// Required for alt-tab function
 void matrix_scan_encoders(void);
