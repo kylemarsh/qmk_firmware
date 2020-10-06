@@ -25,7 +25,7 @@
 #define NO_USB_STARTUP_CHECK
 
 #define ENCODER_DIRECTION_FLIP
-// #define ENCODER_RESOLUTION 4
+#define ENCODER_RESOLUTION 2
 
 /***************/
 /* OLED Config */
@@ -63,10 +63,6 @@
 /* Combo Config */
 /****************/
 #define COMBO_COUNT 4
-
-/*******************/
-/* Tapdance Config */
-/*******************/
 
 /*****************/
 /* Leader Config */

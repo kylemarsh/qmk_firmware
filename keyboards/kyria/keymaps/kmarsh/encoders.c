@@ -177,6 +177,5 @@ void encoder_update_user(uint8_t index, bool clockwise) {
                 // Do nothing
                 break;
         }
-                volume_control(clockwise);
     }
 }

@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
-#include "tap_dance.h"
 #include "encoders.h"
+//#include "tap_dance.h"
 //#include "leader.h"
 
 enum layers {

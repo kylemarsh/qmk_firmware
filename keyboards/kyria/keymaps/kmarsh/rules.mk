@@ -6,10 +6,9 @@ ENCODER_ENABLE                = yes # Enables the use of one or more encoders
 MOUSEKEY_ENABLE               = yes # Enables features to use keyboard as mouse
 OLED_DRIVER_ENABLE            = yes # Enables the use of OLED displays
 RGBLIGHT_ENABLE               = yes # Enable keyboard RGB underglow
-TAP_DANCE_ENABLE              = yes # multi-tapping a single key produces different effects
 
 SRC += encoders.c
-SRC += tap_dance.c
+#SRC += tap_dance.c
 #SRC += leader.c
 
 # Unused Software Features
@@ -24,6 +23,7 @@ LEADER_ENABLE                 = no # Enables leader key feature
 SPACE_CADET_ENABLE            = no  # Allows some interesting mod-tap keys
 STENO_ENABLE                  = no
 SWAP_HANDS_ENABLE             = no  # Allow key to swap halves for one-handed typing
+TAP_DANCE_ENABLE              = no  # multi-tapping a single key produces different effects
 TERMINAL_ENABLE               = no  # Terminal interface to keyboard firmware
 UNICODE_ENABLE                = no  # Allow keys to output unicode chars
 VELOCIKEY_ENABLE              = no  # Typing speed controls speed of RGB Efects

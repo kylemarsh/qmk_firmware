@@ -22,9 +22,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //|----------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
       ESC_NAV ,A_SFT   ,S_OPT   ,D_CTL   ,F_CMD   ,G                                           ,H       ,J_CMD   ,K_CTL   ,L_OPT   ,SCLN_SFT,QUOT_NAV,
  //|----------+--------+--------+--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------+--------+--------+--------|
-      SFT_CPS ,PAD_Z   ,X       ,C       ,V       ,B       ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,N       ,M       ,COMM    ,DOT     ,PAD_SLSH,RSFT    ,
+      LSFT    ,PAD_Z   ,X       ,C       ,V       ,B       ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,N       ,M       ,COMM    ,DOT     ,PAD_SLSH,RSFT    ,
  //,----------+--------+--------+--------+--------+--------+--------+-------||--------+--------+--------+--------+--------+--------+--------+--------.
-                                 BSE_E1  ,EQUAL   ,MINS    ,SYM_BKS ,DEL     ,ENTER   ,SYM_SPC ,UNDS    ,PLUS    ,BSE_E2
+                                 BSE_E1  ,PLUS    ,UNDS    ,SYM_BKS ,DEL     ,ENTER   ,SYM_SPC ,MINS    ,EQUAL   ,BSE_E2
  //                             ,--------+--------+--------+--------+-------.,--------+--------+--------+--------+--------.
     ),
     [_SYMB] = LAYOUT_kc(
@@ -158,7 +158,7 @@ void oled_task_user(void) {
 const uint16_t PROGMEM hyphen_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM plus_combo[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM underscore_combo[] = {KC_M, KC_DOT, COMBO_END};
-const uint16_t PROGMEM caps_combo[] = {KC_SFT_CPS, KC_RSFT, COMBO_END};
+const uint16_t PROGMEM caps_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(hyphen_combo, KC_MINS),
