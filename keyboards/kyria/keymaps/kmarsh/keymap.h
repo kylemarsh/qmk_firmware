@@ -69,7 +69,6 @@ enum layers {
 #define KC_PAD_Z        LT(_PADS, KC_Z)
 #define KC_PAD_SLSH     LT(_PADS, KC_SLSH)
 
-#define KC_W_WIN        MT(MOD_LGUI | MOD_LCTL, KC_W)
 // TODO: Define spaces movement (mod-tap with layer toggle? Can I do that?) for S
 
 //KC_MACROS
